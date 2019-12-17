@@ -15,14 +15,78 @@ import UIKit
 class CardInfoPresenter {
     
     weak var view: CardInfoDisplayLogic?
+    
+    private func getCardUrl(_ url: URL) -> URL {
+        // Пока ничего не делаем
+        return url
+    }
+    
+    private func presentCardCost(_ cost: Int) -> String {
+        return "\(cost) 💎"
+    }
+    
+    private func presentCardHealth(_ health: Int) -> String {
+        return "\(health) ♥️"
+    }
+    
+    private func presentCardAttack(_ attack: Int) -> String {
+        return "\(attack) ⚔️"
+    }
+    
+    private func presentCardRarity(_ rarity: String) -> String {
+        switch rarity {
+        case "Free":
+            return "\(rarity)"
+        case "Common":
+            return "⚪️ \(rarity) ⚪️"
+        case "Rare":
+            return "🔷 \(rarity) 🔷"
+        case "Epic":
+            return "🟣 \(rarity) 🟣"
+        case "Legendary":
+            return "🔶 \(rarity) 🔶"
+        default:
+            return ""
+        }
+        
+    }
+    
+    private func presentCardText(_ text: String?) -> String {
+        if let carText = text {
+        
+            var result = carText.replacingOccurrences(of: "_", with: " ")
+            result = result.replacingOccurrences(of: "<b>", with: "")
+            result = result.replacingOccurrences(of: "</b>", with: "")
+            result = result.replacingOccurrences(of: "\\n", with: " ")
+            return result
+        } else {
+            return "No card text"
+        }
+    }
+    
+    private func presentCardFlavor(_ flavor: String?) -> String {
+        if let cardFlavor = flavor {
+            return cardFlavor
+        }
+        else {
+            return "No flavor"
+        }
+    }
 }
 
 extension CardInfoPresenter: CardInfoPresentationLogic {
-    func presentCard(card: CardInfo)
-    {
-        // Removing an underScore for card text
-        var cardText = card.text
-        cardText = cardText.replacingOccurrences(of: "_", with: " ")
-        view?.displayCardText(card: cardText)
+    func presentCard(card: CardInfo) {
+        
+        // Formatting all parameters before displaying them
+        let url = getCardUrl(card.img)
+        let urlGold = card.imgGold
+        let cost = presentCardCost(card.cost)
+        let health = presentCardHealth(card.health)
+        let attack = presentCardAttack(card.attack)
+        let rarity = presentCardRarity(card.rarity)
+        let text = presentCardText(card.text)
+        let flavor = presentCardFlavor(card.flavor)
+        
+        view?.displayCard(url: url, urlGold: urlGold, cost: cost, health: health, attack: attack, rarity: rarity, text: text, flavor: flavor)
     }
 }

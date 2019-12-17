@@ -20,10 +20,14 @@ class HSGalleryRapidAPIService {
     // Get single card information
     func getSingleCard(byName name: String, completionHandler: @escaping ([CardInfo]?, Error?) -> Void ) {
         
-        AF.request("https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/\(name)", headers: headers)
+        // Для имен карт с пробелами в названии
+        let requestName = name.replacingOccurrences(of: " ", with: "%2520")
+        
+        AF.request("https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/\(requestName)", headers: headers)
             .responseJSON(queue: .global(qos: .userInitiated), completionHandler:
                 { response in
                     
+                    debugPrint(response)
                     // Checking response status
                     if let status = response.response?.statusCode {
                         switch(status){
@@ -53,6 +57,7 @@ class HSGalleryRapidAPIService {
                         }
                     case .failure(let error):
                         print(error.localizedDescription)
+                        completionHandler(nil, error)
                     }
             })
     }

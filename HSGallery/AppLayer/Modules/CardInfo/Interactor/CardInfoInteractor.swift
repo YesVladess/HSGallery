@@ -23,10 +23,25 @@ class CardInfoInteractor: CardInfoBusinessLogic, CardInfoDataStore
         
         let myApi = HSGalleryRapidAPIService()
         
+        
         myApi.getSingleCard(byName: name, completionHandler:
-            { [weak self] cards, error in
-                self!.cardInfo = cards![0]
-                self!.presenter?.presentCard(card: self!.cardInfo!)
+            { [unowned self] cards, error in
+                if let errorDesc = error {
+                    print(errorDesc)
+                } else {
+                    if cards?.count == 2 {
+                    if let myCardInfo = cards?[1] {
+                        self.cardInfo = myCardInfo
+                        self.presenter?.presentCard(card: self.cardInfo!)
+                    }
+                    } else {
+                        if let myCardInfo = cards?[0] {
+                            self.cardInfo = myCardInfo
+                            self.presenter?.presentCard(card: self.cardInfo!)
+                        }
+                    }
+                    
+                }
         })
     }
 }

@@ -18,13 +18,13 @@ struct CardInfo: Codable
     let name: String
     let cardSet: String
     let type: String
-    let faction: String
+    let faction: String?
     let rarity: String
     let cost: Int
     let attack: Int
     let health: Int
-    let text: String
-    let flavor: String
+    let text: String?
+    let flavor: String?
     let img: URL
     let imgGold: URL
     
