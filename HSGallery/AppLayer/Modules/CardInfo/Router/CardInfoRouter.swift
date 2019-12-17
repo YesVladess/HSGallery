@@ -12,18 +12,9 @@
 
 import UIKit
 
-@objc protocol CardInfoRoutingLogic
-{
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-}
-
-protocol CardInfoDataPassing
-{
-  var dataStore: CardInfoDataStore? { get }
-}
-
 class CardInfoRouter: NSObject, CardInfoRoutingLogic, CardInfoDataPassing
 {
+  weak var transitionHandler : UIViewController?
   weak var viewController: CardInfoViewController?
   var dataStore: CardInfoDataStore?
   

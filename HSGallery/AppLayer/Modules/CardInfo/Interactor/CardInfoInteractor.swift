@@ -12,28 +12,21 @@
 
 import UIKit
 
-protocol CardInfoBusinessLogic
-{
-    func getCard(_ name: String)
-}
-
-protocol CardInfoDataStore
-{
-  //var name: String { get set }
-}
-
 class CardInfoInteractor: CardInfoBusinessLogic, CardInfoDataStore
 {
-  var presenter: CardInfoPresentationLogic?
+    var presenter: CardInfoPresentationLogic?
+    var router: CardInfoRoutingLogic?
     
-    var name = ""
-  
+    var cardInfo: CardInfo?
+    
     func getCard(_ name: String) {
         
         let myApi = HSGalleryRapidAPIService()
-        myApi.getSingleCard(byName: name ?? "", completionHandler:
-            { cards, error in
-//                self.textView.text = cards?[0].text
+        
+        myApi.getSingleCard(byName: name, completionHandler:
+            { [weak self] cards, error in
+                self!.cardInfo = cards![0]
+                self!.presenter?.presentCard(card: self!.cardInfo!)
         })
     }
 }
