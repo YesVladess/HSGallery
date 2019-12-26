@@ -16,44 +16,62 @@ class CardInfoPresenter {
     
     weak var view: CardInfoDisplayLogic?
     
-    private func getCardUrl(_ url: URL) -> URL {
-        // Пока ничего не делаем
-        return url
-    }
-    
-    private func presentCardCost(_ cost: Int) -> String {
-        return "\(cost) 💎"
-    }
-    
-    private func presentCardHealth(_ health: Int) -> String {
-        return "\(health) ♥️"
-    }
-    
-    private func presentCardAttack(_ attack: Int) -> String {
-        return "\(attack) ⚔️"
-    }
-    
-    private func presentCardRarity(_ rarity: String) -> String {
-        switch rarity {
-        case "Free":
-            return "\(rarity)"
-        case "Common":
-            return "⚪️ \(rarity) ⚪️"
-        case "Rare":
-            return "🔷 \(rarity) 🔷"
-        case "Epic":
-            return "🟣 \(rarity) 🟣"
-        case "Legendary":
-            return "🔶 \(rarity) 🔶"
-        default:
-            return ""
+    private func getCardUrl(_ url: URL?) -> URL? {
+        if let myUrl = url {
+            return myUrl
         }
+        // TODO: FIXME!!!!!!!!
+        else { return nil }
+    }
+    
+    private func presentCardCost(_ cost: Int?) -> String {
+        if let myCost = cost {
+            return "\(myCost) 💎"
+        } else {
+            return "no cost"
+        }
+    }
+    
+    private func presentCardHealth(_ health: Int?) -> String {
+        if let myHealth = health {
+            return "\(myHealth) ♥️"
+        } else {
+            return "no health"
+        }
+    }
+    
+    private func presentCardAttack(_ attack: Int?) -> String {
+        if let myAttack = attack {
+            return "\(myAttack) ⚔️"
+        } else {
+            return "no attack"
+        }
+    }
+    
+    private func presentCardRarity(_ rarity: String?) -> String {
+        
+        if let cardRarity = rarity {
+            switch cardRarity {
+            case "Free":
+                return "\(cardRarity)"
+            case "Common":
+                return "⚪️ \(cardRarity) ⚪️"
+            case "Rare":
+                return "🔷 \(cardRarity) 🔷"
+            case "Epic":
+                return "🟣 \(cardRarity) 🟣"
+            case "Legendary":
+                return "🔶 \(cardRarity) 🔶"
+            default:
+                return ""
+            }
+        } else { return "No RARITY????" }
         
     }
     
     private func presentCardText(_ text: String?) -> String {
         if let carText = text {
-        
+            
             var result = carText.replacingOccurrences(of: "_", with: " ")
             result = result.replacingOccurrences(of: "<b>", with: "")
             result = result.replacingOccurrences(of: "</b>", with: "")
@@ -75,7 +93,8 @@ class CardInfoPresenter {
 }
 
 extension CardInfoPresenter: CardInfoPresentationLogic {
-    func presentCard(card: CardInfo) {
+    
+    func presentCard(card: CardModel) {
         
         // Formatting all parameters before displaying them
         let url = getCardUrl(card.img)

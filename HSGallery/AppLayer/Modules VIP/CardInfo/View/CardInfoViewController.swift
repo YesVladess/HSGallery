@@ -69,12 +69,6 @@ class CardInfoViewController: UIViewController {
         return vc
     }
     
-    private func setupVc() {
-        
-        //    let request = CardInfo.Something.Request()
-        //    interactor?.doSomething(request: request)
-    }
-    
     // MARK: Routing
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -93,7 +87,6 @@ class CardInfoViewController: UIViewController {
         addCardImageGestureRecognizer(imageView)
         imageView.isUserInteractionEnabled = true
         textField.delegate = self
-        setupVc()
     }
     
     // MARK: IBOutlets

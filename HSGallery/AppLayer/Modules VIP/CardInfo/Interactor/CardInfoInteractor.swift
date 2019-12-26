@@ -12,17 +12,16 @@
 
 import UIKit
 
-class CardInfoInteractor: CardInfoBusinessLogic, CardInfoDataStore
-{
+class CardInfoInteractor: CardInfoBusinessLogic, CardInfoDataStore {
+    
     var presenter: CardInfoPresentationLogic?
     var router: CardInfoRoutingLogic?
     
-    var cardInfo: CardInfo?
+    var cardInfo: CardModel?
     
     func getCard(_ name: String) {
         
         let myApi = HSGalleryRapidAPIService()
-        
         
         myApi.getSingleCard(byName: name, completionHandler:
             { [unowned self] cards, error in
@@ -40,7 +39,6 @@ class CardInfoInteractor: CardInfoBusinessLogic, CardInfoDataStore
                             self.presenter?.presentCard(card: self.cardInfo!)
                         }
                     }
-                    
                 }
         })
     }

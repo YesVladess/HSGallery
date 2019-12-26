@@ -9,13 +9,29 @@
 /* Begin PBXBuildFile section */
 		5A6BA57F23A15C2A00480643 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 5A6BA57E23A15C2A00480643 /* Podfile */; };
 		5A6BA58123A15E9800480643 /* HSGalleryRapidAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BA58023A15E9800480643 /* HSGalleryRapidAPIService.swift */; };
+		5A83C62123AFFD7100A2D2E7 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A83C62023AFFD7100A2D2E7 /* CardCell.swift */; };
+		5A83C62523B00B9100A2D2E7 /* CardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A83C62423B00B9100A2D2E7 /* CardCell.xib */; };
+		5A83C62823B166B200A2D2E7 /* CreatureVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A83C62723B166B200A2D2E7 /* CreatureVMProtocol.swift */; };
+		5A86FDF223AAD46D0005A310 /* CardListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86FDF123AAD46D0005A310 /* CardListTableViewController.swift */; };
+		5A86FDF423AAD4DA0005A310 /* CardListTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A86FDF323AAD4DA0005A310 /* CardListTableViewController.storyboard */; };
+		5A86FDF623AAD52A0005A310 /* CardListDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86FDF523AAD52A0005A310 /* CardListDisplayLogic.swift */; };
+		5A86FDF823AAD58C0005A310 /* CardListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86FDF723AAD58C0005A310 /* CardListInteractor.swift */; };
+		5A86FDFA23AAD5A90005A310 /* CardListBusinessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86FDF923AAD5A90005A310 /* CardListBusinessLogic.swift */; };
+		5A86FDFC23AAD5BB0005A310 /* CardListDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86FDFB23AAD5BB0005A310 /* CardListDataStore.swift */; };
+		5A86FDFE23AAD5D00005A310 /* CardListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86FDFD23AAD5D00005A310 /* CardListPresenter.swift */; };
+		5A86FE0023AAD5E10005A310 /* CardListPresentationLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86FDFF23AAD5E10005A310 /* CardListPresentationLogic.swift */; };
+		5A86FE0223AAD6030005A310 /* CardListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86FE0123AAD6030005A310 /* CardListRouter.swift */; };
+		5A86FE0423AAD61A0005A310 /* CardListRoutingLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86FE0323AAD61A0005A310 /* CardListRoutingLogic.swift */; };
+		5A86FE0623AAD62C0005A310 /* CardListDataPassing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86FE0523AAD62C0005A310 /* CardListDataPassing.swift */; };
+		5A86FE0923AAD66D0005A310 /* CreatureVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86FE0823AAD66D0005A310 /* CreatureVM.swift */; };
+		5A86FE0B23AAD6980005A310 /* CardListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86FE0A23AAD6980005A310 /* CardListModule.swift */; };
 		5A8AA031239833250089261B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8AA030239833250089261B /* AppDelegate.swift */; };
 		5A8AA033239833250089261B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8AA032239833250089261B /* SceneDelegate.swift */; };
 		5A8AA038239833250089261B /* CardInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8AA036239833250089261B /* CardInfoViewController.storyboard */; };
 		5A8AA03A239833270089261B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A8AA039239833270089261B /* Assets.xcassets */; };
 		5A8AA07023984D080089261B /* CardInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8AA06A23984D080089261B /* CardInfoPresenter.swift */; };
 		5A8AA07223984D080089261B /* CardInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8AA06C23984D080089261B /* CardInfoRouter.swift */; };
-		5A8AA07323984D080089261B /* CardInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8AA06D23984D080089261B /* CardInfoModel.swift */; };
+		5A8AA07323984D080089261B /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8AA06D23984D080089261B /* CardModel.swift */; };
 		5A8AA07423984D080089261B /* CardInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8AA06E23984D080089261B /* CardInfoViewController.swift */; };
 		5A8AA07523984D080089261B /* CardInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8AA06F23984D080089261B /* CardInfoInteractor.swift */; };
 		5AC0D5B223A8539B00AD51E4 /* CardInfoDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC0D5B123A8539B00AD51E4 /* CardInfoDisplayLogic.swift */; };
@@ -34,6 +50,22 @@
 		3BDB655B63CB591838594A71 /* Pods-HSGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSGallery.debug.xcconfig"; path = "Target Support Files/Pods-HSGallery/Pods-HSGallery.debug.xcconfig"; sourceTree = "<group>"; };
 		5A6BA57E23A15C2A00480643 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5A6BA58023A15E9800480643 /* HSGalleryRapidAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSGalleryRapidAPIService.swift; sourceTree = "<group>"; };
+		5A83C62023AFFD7100A2D2E7 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		5A83C62423B00B9100A2D2E7 /* CardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCell.xib; sourceTree = "<group>"; };
+		5A83C62723B166B200A2D2E7 /* CreatureVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureVMProtocol.swift; sourceTree = "<group>"; };
+		5A86FDF123AAD46D0005A310 /* CardListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListTableViewController.swift; sourceTree = "<group>"; };
+		5A86FDF323AAD4DA0005A310 /* CardListTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CardListTableViewController.storyboard; sourceTree = "<group>"; };
+		5A86FDF523AAD52A0005A310 /* CardListDisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListDisplayLogic.swift; sourceTree = "<group>"; };
+		5A86FDF723AAD58C0005A310 /* CardListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListInteractor.swift; sourceTree = "<group>"; };
+		5A86FDF923AAD5A90005A310 /* CardListBusinessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListBusinessLogic.swift; sourceTree = "<group>"; };
+		5A86FDFB23AAD5BB0005A310 /* CardListDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListDataStore.swift; sourceTree = "<group>"; };
+		5A86FDFD23AAD5D00005A310 /* CardListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListPresenter.swift; sourceTree = "<group>"; };
+		5A86FDFF23AAD5E10005A310 /* CardListPresentationLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListPresentationLogic.swift; sourceTree = "<group>"; };
+		5A86FE0123AAD6030005A310 /* CardListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListRouter.swift; sourceTree = "<group>"; };
+		5A86FE0323AAD61A0005A310 /* CardListRoutingLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListRoutingLogic.swift; sourceTree = "<group>"; };
+		5A86FE0523AAD62C0005A310 /* CardListDataPassing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListDataPassing.swift; sourceTree = "<group>"; };
+		5A86FE0823AAD66D0005A310 /* CreatureVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureVM.swift; sourceTree = "<group>"; };
+		5A86FE0A23AAD6980005A310 /* CardListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListModule.swift; sourceTree = "<group>"; };
 		5A8AA02D239833250089261B /* HSGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A8AA030239833250089261B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A8AA032239833250089261B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,7 +74,7 @@
 		5A8AA03E239833270089261B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A8AA06A23984D080089261B /* CardInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoPresenter.swift; sourceTree = "<group>"; };
 		5A8AA06C23984D080089261B /* CardInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoRouter.swift; sourceTree = "<group>"; };
-		5A8AA06D23984D080089261B /* CardInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoModel.swift; sourceTree = "<group>"; };
+		5A8AA06D23984D080089261B /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		5A8AA06E23984D080089261B /* CardInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoViewController.swift; sourceTree = "<group>"; };
 		5A8AA06F23984D080089261B /* CardInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoInteractor.swift; sourceTree = "<group>"; };
 		5AC0D5B123A8539B00AD51E4 /* CardInfoDisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoDisplayLogic.swift; sourceTree = "<group>"; };
@@ -93,6 +125,76 @@
 			path = ServiceLayer;
 			sourceTree = "<group>";
 		};
+		5A86FDEB23AAD34A0005A310 /* CardList */ = {
+			isa = PBXGroup;
+			children = (
+				5A86FDEC23AAD3800005A310 /* Configurator */,
+				5A86FDED23AAD38B0005A310 /* View */,
+				5A86FDEE23AAD3AC0005A310 /* Interactor */,
+				5A86FDEF23AAD3B70005A310 /* Presenter */,
+				5A86FE0723AAD64F0005A310 /* ViewModel */,
+				5A86FDF023AAD3C10005A310 /* Router */,
+			);
+			path = CardList;
+			sourceTree = "<group>";
+		};
+		5A86FDEC23AAD3800005A310 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				5A86FE0A23AAD6980005A310 /* CardListModule.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		5A86FDED23AAD38B0005A310 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5A86FDF123AAD46D0005A310 /* CardListTableViewController.swift */,
+				5A86FDF323AAD4DA0005A310 /* CardListTableViewController.storyboard */,
+				5A86FDF523AAD52A0005A310 /* CardListDisplayLogic.swift */,
+				5AC5731723B5566D0051A810 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5A86FDEE23AAD3AC0005A310 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				5A86FDF723AAD58C0005A310 /* CardListInteractor.swift */,
+				5A86FDF923AAD5A90005A310 /* CardListBusinessLogic.swift */,
+				5A86FDFB23AAD5BB0005A310 /* CardListDataStore.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		5A86FDEF23AAD3B70005A310 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5A86FDFD23AAD5D00005A310 /* CardListPresenter.swift */,
+				5A86FDFF23AAD5E10005A310 /* CardListPresentationLogic.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5A86FDF023AAD3C10005A310 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				5A86FE0123AAD6030005A310 /* CardListRouter.swift */,
+				5A86FE0323AAD61A0005A310 /* CardListRoutingLogic.swift */,
+				5A86FE0523AAD62C0005A310 /* CardListDataPassing.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		5A86FE0723AAD64F0005A310 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5A86FE0823AAD66D0005A310 /* CreatureVM.swift */,
+				5A83C62723B166B200A2D2E7 /* CreatureVMProtocol.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5A8AA024239833250089261B = {
 			isa = PBXGroup;
 			children = (
@@ -115,8 +217,8 @@
 		5A8AA02F239833250089261B /* HSGallery */ = {
 			isa = PBXGroup;
 			children = (
-				5A8AA0442398419A0089261B /* AppLayer */,
 				5A6BA57D23A15B1500480643 /* ServiceLayer */,
+				5A8AA0442398419A0089261B /* AppLayer */,
 				5A8AA04B239842A40089261B /* Supporting files */,
 				5A8AA039239833270089261B /* Assets.xcassets */,
 				5A8AA03E239833270089261B /* Info.plist */,
@@ -127,17 +229,19 @@
 		5A8AA0442398419A0089261B /* AppLayer */ = {
 			isa = PBXGroup;
 			children = (
-				5A8AA045239841BE0089261B /* Modules */,
+				5AC5731623B555DE0051A810 /* Model */,
+				5A8AA045239841BE0089261B /* Modules VIP */,
 			);
 			path = AppLayer;
 			sourceTree = "<group>";
 		};
-		5A8AA045239841BE0089261B /* Modules */ = {
+		5A8AA045239841BE0089261B /* Modules VIP */ = {
 			isa = PBXGroup;
 			children = (
+				5A86FDEB23AAD34A0005A310 /* CardList */,
 				5A8AA07623984D0E0089261B /* CardInfo */,
 			);
-			path = Modules;
+			path = "Modules VIP";
 			sourceTree = "<group>";
 		};
 		5A8AA04B239842A40089261B /* Supporting files */ = {
@@ -157,7 +261,6 @@
 				5AC0D5AC23A8532C00AD51E4 /* View */,
 				5AC0D5AD23A8533C00AD51E4 /* Interactor */,
 				5AC0D5AE23A8534400AD51E4 /* Presenter */,
-				5AC0D5AF23A8535E00AD51E4 /* Model */,
 				5AC0D5B023A8536800AD51E4 /* Router */,
 			);
 			path = CardInfo;
@@ -192,14 +295,6 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		5AC0D5AF23A8535E00AD51E4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5A8AA06D23984D080089261B /* CardInfoModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		5AC0D5B023A8536800AD51E4 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +311,23 @@
 				5AC0D5BE23A8554C00AD51E4 /* CardInfoModule.swift */,
 			);
 			path = Configurator;
+			sourceTree = "<group>";
+		};
+		5AC5731623B555DE0051A810 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A8AA06D23984D080089261B /* CardModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5AC5731723B5566D0051A810 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5A83C62023AFFD7100A2D2E7 /* CardCell.swift */,
+				5A83C62423B00B9100A2D2E7 /* CardCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,7 +393,9 @@
 				5A8AA03A239833270089261B /* Assets.xcassets in Resources */,
 				5AC0D5C223A8620800AD51E4 /* LaunchScreen.storyboard in Resources */,
 				5A6BA57F23A15C2A00480643 /* Podfile in Resources */,
+				5A86FDF423AAD4DA0005A310 /* CardListTableViewController.storyboard in Resources */,
 				5A8AA038239833250089261B /* CardInfoViewController.storyboard in Resources */,
+				5A83C62523B00B9100A2D2E7 /* CardCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,21 +448,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A86FE0223AAD6030005A310 /* CardListRouter.swift in Sources */,
 				5AC0D5B623A8541400AD51E4 /* CardInfoDataStore.swift in Sources */,
+				5A83C62823B166B200A2D2E7 /* CreatureVMProtocol.swift in Sources */,
 				5AC0D5BF23A8554C00AD51E4 /* CardInfoModule.swift in Sources */,
+				5A86FDF823AAD58C0005A310 /* CardListInteractor.swift in Sources */,
+				5A86FE0B23AAD6980005A310 /* CardListModule.swift in Sources */,
+				5A83C62123AFFD7100A2D2E7 /* CardCell.swift in Sources */,
+				5A86FDF623AAD52A0005A310 /* CardListDisplayLogic.swift in Sources */,
 				5AC0D5B423A853F300AD51E4 /* CardInfoBusinessLogic.swift in Sources */,
 				5A8AA07423984D080089261B /* CardInfoViewController.swift in Sources */,
+				5A86FE0023AAD5E10005A310 /* CardListPresentationLogic.swift in Sources */,
 				5A8AA031239833250089261B /* AppDelegate.swift in Sources */,
-				5A8AA07323984D080089261B /* CardInfoModel.swift in Sources */,
+				5A86FE0923AAD66D0005A310 /* CreatureVM.swift in Sources */,
+				5A8AA07323984D080089261B /* CardModel.swift in Sources */,
+				5A86FE0623AAD62C0005A310 /* CardListDataPassing.swift in Sources */,
 				5A6BA58123A15E9800480643 /* HSGalleryRapidAPIService.swift in Sources */,
 				5A8AA033239833250089261B /* SceneDelegate.swift in Sources */,
 				5AC0D5BC23A854C900AD51E4 /* CardInfoDataPassing.swift in Sources */,
 				5A8AA07523984D080089261B /* CardInfoInteractor.swift in Sources */,
 				5A8AA07223984D080089261B /* CardInfoRouter.swift in Sources */,
+				5A86FDFE23AAD5D00005A310 /* CardListPresenter.swift in Sources */,
+				5A86FDF223AAD46D0005A310 /* CardListTableViewController.swift in Sources */,
+				5A86FE0423AAD61A0005A310 /* CardListRoutingLogic.swift in Sources */,
 				5AC0D5B223A8539B00AD51E4 /* CardInfoDisplayLogic.swift in Sources */,
+				5A86FDFC23AAD5BB0005A310 /* CardListDataStore.swift in Sources */,
 				5A8AA07023984D080089261B /* CardInfoPresenter.swift in Sources */,
 				5AC0D5B823A8546900AD51E4 /* CardInfoPresentationLogic.swift in Sources */,
 				5AC0D5BA23A854A000AD51E4 /* CardInfoRoutingLogic.swift in Sources */,
+				5A86FDFA23AAD5A90005A310 /* CardListBusinessLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

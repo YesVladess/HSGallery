@@ -12,8 +12,7 @@
 
 import UIKit
 
-class CardInfoRouter: NSObject, CardInfoRoutingLogic, CardInfoDataPassing
-{
+class CardInfoRouter: NSObject, CardInfoRoutingLogic, CardInfoDataPassing {
   weak var transitionHandler : UIViewController?
   weak var viewController: CardInfoViewController?
   var dataStore: CardInfoDataStore?

@@ -8,7 +8,6 @@
 
 import Foundation
 
-@objc protocol CardInfoRoutingLogic
-{
+@objc protocol CardInfoRoutingLogic {
     //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
