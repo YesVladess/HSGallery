@@ -1,5 +1,5 @@
 # HSGallery
-##### Приложение галерея для просмотра карт из игры Hearthstone.
-* Используется публичное API https://rapidapi.com/omgvamp/api/hearthstone.
-* В приложении используется VIP архитектура (Clean Swift).
-* Для обмена данными с API используется библиотека Alamofire.
+##### This is an gallery app for browsing cards from card-game Hearthstone.
+* Public API is used: https://rapidapi.com/omgvamp/api/hearthstone.
+* Using VIP architecture (Clean Swift).
+* For network data fetching Alamofire is used.
