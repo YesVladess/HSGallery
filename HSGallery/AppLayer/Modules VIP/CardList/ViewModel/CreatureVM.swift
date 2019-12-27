@@ -14,9 +14,9 @@ class CreatureVM : CreatureVMProtocol {
     var health: String
     var rarity: String
     var text: String
-    var img: URL
+    var img: URL?
     
-    init(cost: String, attack: String, health: String, rarity: String, text: String, img: URL) {
+    init(cost: String, attack: String, health: String, rarity: String, text: String, img: URL?) {
         self.cost = cost
         self.attack = attack
         self.health = health

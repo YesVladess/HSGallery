@@ -8,8 +8,18 @@
 
 import Foundation
 
-public struct CardModel: Codable
-{
+/**
+ Модель, описывающая обьект одной карты.
+ 
+ Вынесена из модулей,
+ т.к. данная модель используется для загрузки данных
+ на всех экранах приложения.
+ 
+ Все optional свойства не являются обязательными для карты и могут отсуствовать
+ Айди, имя, название сета и тип карты являются обязательными для любой карты
+ */
+public struct CardModel: Codable {
+    
     let cardId: String
     let name: String
     let cardSet: String

@@ -11,36 +11,22 @@ class CardListPresenter {
     
     weak var view: CardListDisplayLogic?
     
-    private func getCardUrl(_ url: URL?) -> URL? {
-        if let myUrl = url {
-            return myUrl
-        }
-            // TODO: FIXME!!!!!!!!
-        else { return nil }
-    }
+    // MARK: Private formatting helpers
     
     private func presentCardCost(_ cost: Int?) -> String {
-        if let myCost = cost {
-            return "\(myCost) 💎"
-        } else {
-            return "no cost"
-        }
+        
+        if let myCost = cost { return "\(myCost) 💎" }
+        else { return "no cost" }
     }
     
     private func presentCardHealth(_ health: Int?) -> String {
-        if let myHealth = health {
-            return "\(myHealth) ♥️"
-        } else {
-            return "no health"
-        }
+        if let myHealth = health { return "\(myHealth) ♥️" }
+        else { return "no health" }
     }
     
     private func presentCardAttack(_ attack: Int?) -> String {
-        if let myAttack = attack {
-            return "\(myAttack) ⚔️"
-        } else {
-            return "no attack"
-        }
+        if let myAttack = attack { return "\(myAttack) ⚔️" }
+        else { return "no attack" }
     }
     
     private func presentCardRarity(_ rarity: String?) -> String {
@@ -60,7 +46,7 @@ class CardListPresenter {
             default:
                 return ""
             }
-        } else { return "-" }
+        } else { return "no rarity" }
         
     }
     
@@ -80,24 +66,27 @@ class CardListPresenter {
         }
     }
     
+    /**
+     Метод собирает вью модель для типа карты 'Существо'
+     */
     private func buildCreatureViewModels(cards: [CardModel]) -> [CreatureVMProtocol] {
         
         func buildViewModel(card: CardModel) -> CreatureVMProtocol {
             
             // Formatting all parameters before displaying them
-            let url = getCardUrl(card.img)
+            let url = card.img
             let cost = presentCardCost(card.cost)
             let health = presentCardHealth(card.health)
             let attack = presentCardAttack(card.attack)
             let rarity = presentCardRarity(card.rarity)
             let text = presentCardText(card.text)
             
-            let viewModel = CreatureVM(cost: cost ,
+            let viewModel = CreatureVM(cost: cost,
                                        attack: attack,
                                        health: health,
                                        rarity: rarity,
                                        text: text,
-                                       img: url ?? URL(string: "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjm456bhc3mAhWixaYKHb8pA7AQjRx6BAgBEAQ&url=https%3A%2F%2Fstock.adobe.com%2Fru%2Fimages%2F404-not-found-stamp%2F139660022&psig=AOvVaw3_50VThj2cU8tvcyOvtNCJ&ust=1577234148079284")!)
+                                       img: url)
             
             return viewModel
         }

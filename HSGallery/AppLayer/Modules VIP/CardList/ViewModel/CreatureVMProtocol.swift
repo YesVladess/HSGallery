@@ -14,6 +14,6 @@ protocol CreatureVMProtocol {
     var health: String { get set }
     var rarity: String { get set }
     var text: String { get set }
-    var img: URL { get set }
+    var img: URL? { get set }
     
 }

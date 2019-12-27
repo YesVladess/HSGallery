@@ -13,7 +13,6 @@ class CardListTableViewController: UITableViewController {
     var interactor: CardListBusinessLogic?
     var router: (NSObjectProtocol & CardListRoutingLogic & CardListDataPassing)?
     var viewModels = [CreatureVMProtocol]()
-    private lazy var loadingQueue = OperationQueue()
     
     // MARK: - Creating methods
     
@@ -41,9 +40,12 @@ class CardListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Стали делегатом UITableViewDataSourcePrefetching
+        // Для UITableViewDelegate, UITableViewDataSource мы уже делегаты,
+        // т.к. используется UITableViewController
         tableView.prefetchDataSource = self
 
-        // Зарегестрировали xib как новый тип ячейки для tableview
+        // Зарегистрировали xib как новый тип ячейки для tableview
         let nib = UINib(nibName: "CardCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CardCell")
         
@@ -87,10 +89,10 @@ extension CardListTableViewController {
         return cardCell
     }
     
-//    public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        
-//        return 350
-//    }
+    public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 270
+    }
     
 }
 

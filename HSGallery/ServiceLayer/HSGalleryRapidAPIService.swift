@@ -9,35 +9,27 @@
 import Foundation
 import Alamofire
 
+/**
+ Класс для работы с Api
+ 
+ Иcпользует фреймворк Alamofire
+ */
 class HSGalleryRapidAPIService {
     
-    // Credentials for api requests
+    // Массив хедеров с хостом и ключом для запросов к API
     let headers: HTTPHeaders = [
         "x-rapidapi-host": "omgvamp-hearthstone-v1.p.rapidapi.com",
         "x-rapidapi-key": "e26cba55dbmsh58c40a9a285a1b0p1e875ajsn8f9441fcaaf5"
     ]
     
-    func getCardSet(named setName: String, completionHandler: @escaping ([CardModel]?, Error?) -> Void ) {
+    // Основной метод для апи запроса
+    private func makeApiCall(request: String, completionHandler: @escaping ([CardModel]?, Error?) -> Void ) {
         
-        // Для имен карт с пробелами в названии
-        let requestName = setName.replacingOccurrences(of: " ", with: "%2520")
-        
-        AF.request("https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/sets/\(requestName)", headers: headers)
+        AF.request(request, headers: headers)
         .responseJSON(queue: .global(qos: .userInitiated), completionHandler:
             { response in
                 
-                //debugPrint(response)
-                // Checking response status
-                if let status = response.response?.statusCode {
-                    switch(status){
-                    case 200:
-                        print("successful response")
-                    default:
-                        print("error with response status: \(status)")
-                    }
-                }
-                
-                // Decoding Json into an array of CardInfo structs and executing completionHandler on main thread after
+                // Декодируем ответ в массив CardModel
                 switch response.result {
                 case .success:
                     if let jsonData = response.data {
@@ -45,65 +37,45 @@ class HSGalleryRapidAPIService {
                         do {
                             let cards = try jsonDecoder.decode([CardModel].self, from: jsonData)
                             DispatchQueue.main.async {
+                                // После в главном потоке выполняем completionHandler
                                 completionHandler(cards, nil)
                             }
                         } catch let error{
                             print(error.localizedDescription)
                             DispatchQueue.main.async {
+                                // После в главном потоке выполняем completionHandler но прокидываем ошибку декодинга
                                 completionHandler(nil, error)
                             }
                         }
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
+                    // После в главном потоке выполняем completionHandler но прокидываем ошибку респонса
                     completionHandler(nil, error)
                 }
         })
     }
     
-    // Get single card information
+    /**
+    Метод для получения информации по одной карте
+    */
     func getSingleCard(byName cardName: String, completionHandler: @escaping ([CardModel]?, Error?) -> Void ) {
         
         // Для имен карт с пробелами в названии
         let requestName = cardName.replacingOccurrences(of: " ", with: "%2520")
+        let request = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/\(requestName)"
+        makeApiCall(request: request, completionHandler: completionHandler)
+    }
+    
+    /**
+     Метод для получения сета карт (из одного дополнения)
+     */
+    func getCardSet(named setName: String, completionHandler: @escaping ([CardModel]?, Error?) -> Void ) {
         
-        AF.request("https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/\(requestName)", headers: headers)
-            .responseJSON(queue: .global(qos: .userInitiated), completionHandler:
-                { response in
-                    
-                    //debugPrint(response)
-                    // Checking response status
-                    if let status = response.response?.statusCode {
-                        switch(status){
-                        case 200:
-                            print("successful response")
-                        default:
-                            print("error with response status: \(status)")
-                        }
-                    }
-                    
-                    // Decoding Json into an array of CardInfo structs and executing completionHandler on main thread after
-                    switch response.result {
-                    case .success:
-                        if let jsonData = response.data {
-                            let jsonDecoder = JSONDecoder()
-                            do {
-                                let cards = try jsonDecoder.decode([CardModel].self, from: jsonData)
-                                DispatchQueue.main.async {
-                                    completionHandler(cards, nil)
-                                }
-                            } catch let error{
-                                print(error.localizedDescription)
-                                DispatchQueue.main.async {
-                                    completionHandler(nil, error)
-                                }
-                            }
-                        }
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                        completionHandler(nil, error)
-                    }
-            })
+        // Для названий сетов с пробелами в названии
+        let requestName = setName.replacingOccurrences(of: " ", with: "%2520")
+        let request = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/sets/\(requestName)"
+        makeApiCall(request: request, completionHandler: completionHandler)
     }
     
 }

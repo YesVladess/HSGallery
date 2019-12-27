@@ -7,5 +7,6 @@
 //
 
 protocol CardListDataStore {
-  //var name: String { get set }
+  
+    
 }

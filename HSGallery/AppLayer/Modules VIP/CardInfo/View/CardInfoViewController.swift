@@ -20,27 +20,32 @@ class CardInfoViewController: UIViewController {
     var mainURL: URL?
     var secondURL: URL?
     
+    // MARK: IBOutlets
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var flavorLabel: UILabel!
+    @IBOutlet weak var rarityLabel: UILabel!
+    @IBOutlet weak var healthLabel: UILabel!
+    @IBOutlet weak var attackLabel: UILabel!
+    @IBOutlet weak var costLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    
     // Model: The URL used to retrieve the image we're going to show
     var imageURL: URL? {
         didSet {
             // Reset the image to nil (to remove the prev. one)
-            image = nil
+            cardImage = nil
             
-            //
-            // Only fetch the image if we're on screen, to avoid unnecessary
-            // network/resources from being wasted
-            //
-            if viewControllerIsOnScreen {
-                fetchImage()
-            }
-            // else (we're not on screen, wait until viewDidAppear occurs, and fetch the image there)
+            fetchImage()
         }
     }
     
     /// Allows to set/get the UIImage shown in the `imageView`. It will also adapt/setup
     /// things to correctly match the controller's state. (i.e. adapt the `scrollView's`
     /// contentSize to properly enclose the new image size)
-    private var image: UIImage? {
+    private var cardImage: UIImage? {
         set {
             // Setup imageView's image to the new value
             imageView.image = newValue
@@ -50,6 +55,7 @@ class CardInfoViewController: UIViewController {
             
             // We've succesfully set an image, stop the spinner
             spinner?.stopAnimating()
+            spinner?.isHidden = true
         }
         get {
             // Return the imageView's current image
@@ -89,23 +95,14 @@ class CardInfoViewController: UIViewController {
         textField.delegate = self
     }
     
-    // MARK: IBOutlets
-    
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var flavorLabel: UILabel!
-    @IBOutlet weak var rarityLabel: UILabel!
-    @IBOutlet weak var healthLabel: UILabel!
-    @IBOutlet weak var attackLabel: UILabel!
-    @IBOutlet weak var costLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
-    
     // MARK: Helpers
+    
+    // TODO: Вынести в сервис!
     private func fetchImage() {
         
         // Check that URL is set
         guard let url = imageURL else {
+            cardImage = (UIImage(named: "card_back"))
             return // nothing to set
         }
         
@@ -122,25 +119,39 @@ class CardInfoViewController: UIViewController {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             
             // Retrieve image data from the given URL
-            guard let imageData = try? Data(contentsOf: url) else {
-                // failed to get data from URL
-                return
-            }
-            
-            // Set the image when the prev. async. operation finishes.
-            //
-            // Note: setting up `image` here is affecting/updating our UI. This must be done in the main
-            // queue.
-            DispatchQueue.main.async {
+            let sessionConfig = URLSessionConfiguration.default
+            sessionConfig.timeoutIntervalForRequest = 8.0
+            sessionConfig.timeoutIntervalForResource = 8.0
+            let session = URLSession(configuration: sessionConfig)
+            session.dataTask(with: url) {
+                (imageData, response, error) in
                 
-                // Note: This block of code might occur N seconds/minutes after we went fetching the data
-                // to the network. Because of this, the controller's `imageURL` might not be the same anymore
-                // (i.e. the caller/user changed it to something else), so we are checking that the url is
-                // still the same and therefore, the image is the one we currently want to show.
-                if url == self?.imageURL {
-                    self?.image = UIImage(data: imageData)
+                if error != nil {
+                    print(error!)
+                    self?.cardImage = UIImage(named: "card_back")
+                    return
                 }
-            }
+                // Set the image when the prev. async. operation finishes.
+                //
+                // Note: setting up `image` here is affecting/updating our UI. This must be done in the main
+                // queue.
+                DispatchQueue.main.async {
+                    
+                    // Note: This block of code might occur N seconds/minutes after we went fetching the data
+                    // to the network. Because of this, the controller's `imageURL` might not be the same anymore
+                    // (i.e. the caller/user changed it to something else), so we are checking that the url is
+                    // still the same and therefore, the image is the one we currently want to show.
+                    if url == self?.imageURL {
+                        if let data = imageData {
+                            if !(data.count == 0) {
+                                self?.cardImage = UIImage(data: data)
+                            } else {
+                                self?.cardImage = UIImage(named: "card_back")
+                            }
+                        }
+                    }
+                }
+            }.resume()
         }
     }
     

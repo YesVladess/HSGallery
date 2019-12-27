@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A0D523723B5861A00ACF2A4 /* ImageFetcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D523623B5861A00ACF2A4 /* ImageFetcherService.swift */; };
 		5A6BA57F23A15C2A00480643 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 5A6BA57E23A15C2A00480643 /* Podfile */; };
 		5A6BA58123A15E9800480643 /* HSGalleryRapidAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BA58023A15E9800480643 /* HSGalleryRapidAPIService.swift */; };
 		5A83C62123AFFD7100A2D2E7 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A83C62023AFFD7100A2D2E7 /* CardCell.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		00328640F12BD07BA9542282 /* Pods-HSGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSGallery.release.xcconfig"; path = "Target Support Files/Pods-HSGallery/Pods-HSGallery.release.xcconfig"; sourceTree = "<group>"; };
 		3BDB655B63CB591838594A71 /* Pods-HSGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSGallery.debug.xcconfig"; path = "Target Support Files/Pods-HSGallery/Pods-HSGallery.debug.xcconfig"; sourceTree = "<group>"; };
+		5A0D523623B5861A00ACF2A4 /* ImageFetcherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFetcherService.swift; sourceTree = "<group>"; };
 		5A6BA57E23A15C2A00480643 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5A6BA58023A15E9800480643 /* HSGalleryRapidAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSGalleryRapidAPIService.swift; sourceTree = "<group>"; };
 		5A83C62023AFFD7100A2D2E7 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		5A6BA57D23A15B1500480643 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
+				5A0D523623B5861A00ACF2A4 /* ImageFetcherService.swift */,
 				5A6BA58023A15E9800480643 /* HSGalleryRapidAPIService.swift */,
 			);
 			path = ServiceLayer;
@@ -128,11 +131,11 @@
 		5A86FDEB23AAD34A0005A310 /* CardList */ = {
 			isa = PBXGroup;
 			children = (
-				5A86FDEC23AAD3800005A310 /* Configurator */,
 				5A86FDED23AAD38B0005A310 /* View */,
-				5A86FDEE23AAD3AC0005A310 /* Interactor */,
-				5A86FDEF23AAD3B70005A310 /* Presenter */,
 				5A86FE0723AAD64F0005A310 /* ViewModel */,
+				5A86FDEF23AAD3B70005A310 /* Presenter */,
+				5A86FDEE23AAD3AC0005A310 /* Interactor */,
+				5A86FDEC23AAD3800005A310 /* Configurator */,
 				5A86FDF023AAD3C10005A310 /* Router */,
 			);
 			path = CardList;
@@ -217,6 +220,7 @@
 		5A8AA02F239833250089261B /* HSGallery */ = {
 			isa = PBXGroup;
 			children = (
+				5AC5731823B55E240051A810 /* Model */,
 				5A6BA57D23A15B1500480643 /* ServiceLayer */,
 				5A8AA0442398419A0089261B /* AppLayer */,
 				5A8AA04B239842A40089261B /* Supporting files */,
@@ -229,7 +233,6 @@
 		5A8AA0442398419A0089261B /* AppLayer */ = {
 			isa = PBXGroup;
 			children = (
-				5AC5731623B555DE0051A810 /* Model */,
 				5A8AA045239841BE0089261B /* Modules VIP */,
 			);
 			path = AppLayer;
@@ -313,14 +316,6 @@
 			path = Configurator;
 			sourceTree = "<group>";
 		};
-		5AC5731623B555DE0051A810 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5A8AA06D23984D080089261B /* CardModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		5AC5731723B5566D0051A810 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +323,14 @@
 				5A83C62423B00B9100A2D2E7 /* CardCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		5AC5731823B55E240051A810 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A8AA06D23984D080089261B /* CardModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,6 +454,7 @@
 				5A86FE0223AAD6030005A310 /* CardListRouter.swift in Sources */,
 				5AC0D5B623A8541400AD51E4 /* CardInfoDataStore.swift in Sources */,
 				5A83C62823B166B200A2D2E7 /* CreatureVMProtocol.swift in Sources */,
+				5A0D523723B5861A00ACF2A4 /* ImageFetcherService.swift in Sources */,
 				5AC0D5BF23A8554C00AD51E4 /* CardInfoModule.swift in Sources */,
 				5A86FDF823AAD58C0005A310 /* CardListInteractor.swift in Sources */,
 				5A86FE0B23AAD6980005A310 /* CardListModule.swift in Sources */,
