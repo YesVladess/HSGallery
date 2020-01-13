@@ -7,5 +7,7 @@
 //
 
 protocol CardInfoDataStore {
-  //var name: String { get set }
+  
+    var cardInfo2: CreatureVMProtocol? { get set }
+    
 }

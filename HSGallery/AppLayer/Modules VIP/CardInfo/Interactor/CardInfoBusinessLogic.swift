@@ -9,4 +9,6 @@
 protocol CardInfoBusinessLogic
 {
     func getCard(_ name: String)
+    
+    func showCard()
 }

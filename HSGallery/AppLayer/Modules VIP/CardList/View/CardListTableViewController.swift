@@ -26,19 +26,12 @@ class CardListTableViewController: UITableViewController {
         return vc
     }
     
-    // MARK: Routing
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.white
+        self.navigationItem.title = "All Cards"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         
         // Стали делегатом UITableViewDataSourcePrefetching
         // Для UITableViewDelegate, UITableViewDataSource мы уже делегаты,
@@ -56,7 +49,9 @@ class CardListTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        interactor?.getCardSet("Classic")
+        if self.isMovingToParent {
+            interactor?.getCardSet("Classic")
+        }
     }
     
     
@@ -92,6 +87,23 @@ extension CardListTableViewController {
     public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 270
+    }
+    
+}
+
+
+extension CardListTableViewController {
+    
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard
+            indexPath.row < viewModels.count else { return }
+        let viewModel = viewModels[indexPath.row]
+        
+        interactor?.openCardInfo(viewModel: viewModel)
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
     
 }

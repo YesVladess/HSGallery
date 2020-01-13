@@ -10,6 +10,7 @@ import UIKit
 
 class CardListInteractor: CardListDataStore {
     
+    var cardInfo: CreatureVMProtocol?
     var presenter: CardListPresentationLogic?
     var router: CardListRoutingLogic?
     var cardList: [CardModel] = []
@@ -34,6 +35,12 @@ extension CardListInteractor: CardListBusinessLogic {
                     }
                 }
         })
+    }
+    
+    func openCardInfo(viewModel: CreatureVMProtocol) {
+        
+        cardInfo = viewModel
+        router?.openCardInfoScreen()
     }
 }
 

@@ -9,4 +9,5 @@
 protocol CardInfoDataPassing {
     
   var dataStore: CardInfoDataStore? { get }
+    
 }
