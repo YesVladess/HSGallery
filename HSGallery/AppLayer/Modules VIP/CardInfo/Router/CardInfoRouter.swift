@@ -13,38 +13,15 @@
 import UIKit
 
 class CardInfoRouter: NSObject, CardInfoRoutingLogic, CardInfoDataPassing {
-  weak var transitionHandler : UIViewController?
-  weak var viewController: CardInfoViewController?
-  var dataStore: CardInfoDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: CardInfoViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: CardInfoDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    
+    var dataStore: CardInfoDataStore?
+    weak var transitionHandler : UIViewController?
+    weak var viewController: CardInfoViewController?
+    
+    // MARK: Routing
+    
+    // MARK: Navigation
+    
+    // MARK: Passing data
+    
 }

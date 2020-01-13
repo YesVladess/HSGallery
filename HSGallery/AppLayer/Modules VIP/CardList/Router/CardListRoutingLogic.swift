@@ -9,5 +9,7 @@
 import Foundation
 
 @objc protocol CardListRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    
+    func openCardInfoScreen()
+    
 }

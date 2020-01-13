@@ -260,10 +260,10 @@
 		5A8AA07623984D0E0089261B /* CardInfo */ = {
 			isa = PBXGroup;
 			children = (
-				5AC0D5BD23A8552B00AD51E4 /* Configurator */,
 				5AC0D5AC23A8532C00AD51E4 /* View */,
 				5AC0D5AD23A8533C00AD51E4 /* Interactor */,
 				5AC0D5AE23A8534400AD51E4 /* Presenter */,
+				5AC0D5BD23A8552B00AD51E4 /* Configurator */,
 				5AC0D5B023A8536800AD51E4 /* Router */,
 			);
 			path = CardInfo;

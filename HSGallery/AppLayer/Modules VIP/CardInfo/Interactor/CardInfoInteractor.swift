@@ -14,6 +14,7 @@ import UIKit
 
 class CardInfoInteractor: CardInfoBusinessLogic, CardInfoDataStore {
     
+    var cardInfo2: CreatureVMProtocol?
     var presenter: CardInfoPresentationLogic?
     var router: CardInfoRoutingLogic?
     
@@ -41,5 +42,10 @@ class CardInfoInteractor: CardInfoBusinessLogic, CardInfoDataStore {
                     }
                 }
         })
+    }
+    
+    func showCard() {
+        
+        self.presenter?.showCard(card: self.cardInfo2!)
     }
 }
