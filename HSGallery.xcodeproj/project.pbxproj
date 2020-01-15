@@ -27,7 +27,6 @@
 		5A86FE0923AAD66D0005A310 /* CreatureVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86FE0823AAD66D0005A310 /* CreatureVM.swift */; };
 		5A86FE0B23AAD6980005A310 /* CardListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86FE0A23AAD6980005A310 /* CardListModule.swift */; };
 		5A8AA031239833250089261B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8AA030239833250089261B /* AppDelegate.swift */; };
-		5A8AA033239833250089261B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8AA032239833250089261B /* SceneDelegate.swift */; };
 		5A8AA038239833250089261B /* CardInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8AA036239833250089261B /* CardInfoViewController.storyboard */; };
 		5A8AA03A239833270089261B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A8AA039239833270089261B /* Assets.xcassets */; };
 		5A8AA07023984D080089261B /* CardInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8AA06A23984D080089261B /* CardInfoPresenter.swift */; };
@@ -70,7 +69,6 @@
 		5A86FE0A23AAD6980005A310 /* CardListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListModule.swift; sourceTree = "<group>"; };
 		5A8AA02D239833250089261B /* HSGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A8AA030239833250089261B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5A8AA032239833250089261B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5A8AA037239833250089261B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CardInfoViewController.storyboard; sourceTree = "<group>"; };
 		5A8AA039239833270089261B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A8AA03E239833270089261B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 			children = (
 				5AC0D5C023A8620800AD51E4 /* LaunchScreen.storyboard */,
 				5A8AA030239833250089261B /* AppDelegate.swift */,
-				5A8AA032239833250089261B /* SceneDelegate.swift */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -468,7 +465,6 @@
 				5A8AA07323984D080089261B /* CardModel.swift in Sources */,
 				5A86FE0623AAD62C0005A310 /* CardListDataPassing.swift in Sources */,
 				5A6BA58123A15E9800480643 /* HSGalleryRapidAPIService.swift in Sources */,
-				5A8AA033239833250089261B /* SceneDelegate.swift in Sources */,
 				5AC0D5BC23A854C900AD51E4 /* CardInfoDataPassing.swift in Sources */,
 				5A8AA07523984D080089261B /* CardInfoInteractor.swift in Sources */,
 				5A8AA07223984D080089261B /* CardInfoRouter.swift in Sources */,
