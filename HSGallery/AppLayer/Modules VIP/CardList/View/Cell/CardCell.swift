@@ -18,7 +18,6 @@ public class CardCell: UITableViewCell {
     @IBOutlet weak var textLab: UILabel!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    // MARK: Helpers
     private func fetchImage() {
         
         // Check that URL is set
@@ -26,7 +25,6 @@ public class CardCell: UITableViewCell {
             cardImage = (UIImage(named: "card_back"))
             return // nothing to set
         }
-        
         // Start the spinner to indicate we're about to start fetching/downloading the image
         spinner.isHidden = false
         spinner.startAnimating()

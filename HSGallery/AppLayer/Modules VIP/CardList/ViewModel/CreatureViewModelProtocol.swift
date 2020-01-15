@@ -18,7 +18,7 @@ protocol CreatureViewModelProtocol {
     
 }
 
-class CreatureVM : CreatureViewModelProtocol {
+class CreatureViewModel : CreatureViewModelProtocol {
     
     var cost: String
     var attack: String
