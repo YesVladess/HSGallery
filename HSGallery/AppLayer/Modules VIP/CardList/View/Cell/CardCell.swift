@@ -109,15 +109,14 @@ public class CardCell: UITableViewCell {
         }
     }
     
-    func updateCellData(viewModel: CreatureVMProtocol) {
-        if let viewModel = viewModel as? CreatureVM {
-            
+    func updateCellData(fromViewModel: CreatureViewModelProtocol) {
+        
+        if let viewModel = fromViewModel as? CreatureViewModel {
             imageURL = viewModel.img
             costLabel.text = viewModel.cost
             attackLabel.text = viewModel.attack
             healthLabel.text = viewModel.health
             rarityLabel.text = viewModel.rarity
-            textLab.preferredMaxLayoutWidth = 148
             textLab.text = viewModel.text
         }
     }

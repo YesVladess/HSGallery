@@ -7,7 +7,18 @@
 //
 import UIKit
 
-class CreatureVM : CreatureVMProtocol {
+protocol CreatureViewModelProtocol {
+    
+    var cost: String { get set }
+    var attack: String { get set }
+    var health: String { get set }
+    var rarity: String { get set }
+    var text: String { get set }
+    var img: URL? { get set }
+    
+}
+
+class CreatureVM : CreatureViewModelProtocol {
     
     var cost: String
     var attack: String

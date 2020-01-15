@@ -8,5 +8,5 @@
 
 protocol CardListDataStore {
   
-    var cardInfo: CreatureVMProtocol? { get set }
+    var cardInfo: CreatureViewModelProtocol? { get set }
 }

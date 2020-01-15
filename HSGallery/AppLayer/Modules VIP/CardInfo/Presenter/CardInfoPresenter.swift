@@ -109,7 +109,7 @@ extension CardInfoPresenter: CardInfoPresentationLogic {
         view?.displayCard(url: url, urlGold: urlGold, cost: cost, health: health, attack: attack, rarity: rarity, text: text, flavor: flavor)
     }
     
-    func showCard(card: CreatureVMProtocol) {
+    func showCard(card: CreatureViewModelProtocol) {
         
         // Formatting all parameters before displaying them
         let url = getCardUrl(card.img)

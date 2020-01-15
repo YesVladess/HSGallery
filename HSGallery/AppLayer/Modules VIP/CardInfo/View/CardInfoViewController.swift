@@ -152,6 +152,7 @@ class CardInfoViewController: UIViewController {
     // MARK: Gestures
     
     private func addCardImageGestureRecognizer(_ sender: AnyObject) {
+        
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapImage(recognizer:)))
         tapRecognizer.numberOfTapsRequired = 1
         tapRecognizer.numberOfTouchesRequired = 1

@@ -14,7 +14,7 @@ import UIKit
 
 class CardInfoInteractor: CardInfoBusinessLogic, CardInfoDataStore {
     
-    var cardInfo2: CreatureVMProtocol?
+    var cardInfo2: CreatureViewModelProtocol?
     var presenter: CardInfoPresentationLogic?
     var router: CardInfoRoutingLogic?
     

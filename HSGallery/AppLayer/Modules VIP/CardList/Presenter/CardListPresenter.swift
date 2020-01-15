@@ -69,9 +69,9 @@ class CardListPresenter {
     /**
      Метод собирает вью модель для типа карты 'Существо'
      */
-    private func buildCreatureViewModels(cards: [CardModel]) -> [CreatureVMProtocol] {
+    private func buildCreatureViewModels(cards: [CardModel]) -> [CreatureViewModelProtocol] {
         
-        func buildViewModel(card: CardModel) -> CreatureVMProtocol {
+        func buildViewModel(card: CardModel) -> CreatureViewModelProtocol {
             
             // Formatting all parameters before displaying them
             let url = card.img
@@ -81,7 +81,7 @@ class CardListPresenter {
             let rarity = presentCardRarity(card.rarity)
             let text = presentCardText(card.text)
             
-            let viewModel = CreatureVM(cost: cost,
+            let viewModel = CreatureViewModel(cost: cost,
                                        attack: attack,
                                        health: health,
                                        rarity: rarity,
@@ -91,7 +91,7 @@ class CardListPresenter {
             return viewModel
         }
         // Массив вью моделей
-        var viewModelsArray: [CreatureVMProtocol] = []
+        var viewModelsArray: [CreatureViewModelProtocol] = []
         
         for card in cards {
             

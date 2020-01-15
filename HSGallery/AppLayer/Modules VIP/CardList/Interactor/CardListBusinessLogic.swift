@@ -10,5 +10,5 @@ protocol CardListBusinessLogic {
     
     func getCardSet(_ name: String)
     
-    func openCardInfo(viewModel: CreatureVMProtocol)
+    func openCardDetailInfo(viewModel: CreatureViewModelProtocol)
 }

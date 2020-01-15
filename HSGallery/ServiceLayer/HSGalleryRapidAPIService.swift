@@ -23,7 +23,7 @@ class HSGalleryRapidAPIService {
     ]
     
     // Основной метод для апи запроса
-    private func makeApiCall(request: String, completionHandler: @escaping ([CardModel]?, Error?) -> Void ) {
+    private func makeApiCall(request: String, _ completionHandler: @escaping ([CardModel]?, Error?) -> Void ) {
         
         AF.request(request, headers: headers)
         .responseJSON(queue: .global(qos: .userInitiated), completionHandler:
@@ -57,14 +57,14 @@ class HSGalleryRapidAPIService {
     }
     
     /**
-    Метод для получения информации по одной карте
+    Метод для получения информации по одной карте по имени или айди
     */
-    func getSingleCard(byName cardName: String, completionHandler: @escaping ([CardModel]?, Error?) -> Void ) {
+    func getSingleCard(byName cardNameOrId: String, completionHandler: @escaping ([CardModel]?, Error?) -> Void ) {
         
         // Для имен карт с пробелами в названии
-        let requestName = cardName.replacingOccurrences(of: " ", with: "%2520")
+        let requestName = cardNameOrId.replacingOccurrences(of: " ", with: "%2520")
         let request = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/\(requestName)"
-        makeApiCall(request: request, completionHandler: completionHandler)
+        makeApiCall(request: request, completionHandler)
     }
     
     /**
@@ -75,7 +75,7 @@ class HSGalleryRapidAPIService {
         // Для названий сетов с пробелами в названии
         let requestName = setName.replacingOccurrences(of: " ", with: "%2520")
         let request = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/sets/\(requestName)"
-        makeApiCall(request: request, completionHandler: completionHandler)
+        makeApiCall(request: request, completionHandler)
     }
     
 }

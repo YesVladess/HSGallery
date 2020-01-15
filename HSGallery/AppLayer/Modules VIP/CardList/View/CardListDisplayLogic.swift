@@ -8,5 +8,5 @@
 
 protocol CardListDisplayLogic: class {
     
-    func displayCardList(cardList: [CreatureVMProtocol])
+    func displayCardList(cardList: [CreatureViewModelProtocol])
 }
