@@ -51,7 +51,7 @@ class CardListTableViewController: UITableViewController {
         // Если мы не возвращаемся из дет. инфо (тогда грузить карты заново не нужно)
         // Запрашиваем у интерактора сет карт
         if self.isMovingToParent {
-            interactor?.getCardSet("The Boomsday Project")
+            interactor?.getCardSet("Classic")
         }
     }
 }

@@ -71,7 +71,6 @@ class CardInfoViewController: UIViewController {
         guard let vc = storyboard.instantiateInitialViewController() as? CardInfoViewController else {
             return nil
         }
-        
         return vc
     }
     
@@ -91,7 +90,7 @@ class CardInfoViewController: UIViewController {
     
     // MARK: Helpers
     
-    // TODO: Вынести в сервис!
+    // THINK: Вынести в сервис!
     private func fetchImage() {
         
         // Check that URL is set
@@ -166,6 +165,7 @@ class CardInfoViewController: UIViewController {
             print("Tap gesture cancelled/failed")
             return
         }
+        // TODO: Сделать по VIP
         if imageURL == mainURL {
             imageURL = secondURL
         } else {

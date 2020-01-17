@@ -14,11 +14,11 @@ import UIKit
 
 class CardInfoInteractor: CardInfoBusinessLogic, CardInfoDataStore {
     
-    var cardInfo2: CreatureViewModelProtocol?
     var presenter: CardInfoPresentationLogic?
     var router: CardInfoRoutingLogic?
     
     var cardInfo: CardModel?
+    var cardInfoViewModel: CreatureViewModelProtocol?
     
     func getCard(_ name: String) {
         
@@ -29,6 +29,7 @@ class CardInfoInteractor: CardInfoBusinessLogic, CardInfoDataStore {
                 if let errorDesc = error {
                     print(errorDesc)
                 } else {
+                    // THINK: Бывает, в запросе по одной карте приходит несколько карт, нужно выбрать одну
                     if cards?.count == 2 {
                     if let myCardInfo = cards?[1] {
                         self.cardInfo = myCardInfo
@@ -46,6 +47,6 @@ class CardInfoInteractor: CardInfoBusinessLogic, CardInfoDataStore {
     
     func showCard() {
         
-        self.presenter?.showCard(card: self.cardInfo2!)
+        self.presenter?.presentCard(card: self.cardInfoViewModel!)
     }
 }

@@ -18,7 +18,7 @@ protocol CreatureViewModelProtocol {
     
 }
 
-class CreatureViewModel : CreatureViewModelProtocol {
+struct CreatureViewModel : CreatureViewModelProtocol {
     
     var cost: String
     var attack: String
@@ -26,14 +26,5 @@ class CreatureViewModel : CreatureViewModelProtocol {
     var rarity: String
     var text: String
     var img: URL?
-    
-    init(cost: String, attack: String, health: String, rarity: String, text: String, img: URL?) {
-        self.cost = cost
-        self.attack = attack
-        self.health = health
-        self.rarity = rarity
-        self.text = text
-        self.img = img
-    }
     
 }

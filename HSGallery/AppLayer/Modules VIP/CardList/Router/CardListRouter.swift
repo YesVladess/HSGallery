@@ -10,8 +10,7 @@ import UIKit
 
 class CardListRouter: NSObject, CardListRoutingLogic, CardListDataPassing {
 
-    weak var transitionHandler : UITableViewController?
-    weak var viewController: CardListTableViewController?
+    weak var transitionHandler : CardListTableViewController?
     var dataStore: CardListDataStore?
     
     // MARK: Routing
@@ -37,7 +36,7 @@ class CardListRouter: NSObject, CardListRoutingLogic, CardListDataPassing {
     
     func passViewModelToCardInfo(source: CardListDataStore, destination: inout CardInfoDataStore?) {
         
-        destination?.cardInfo2 = source.cardInfo
+        destination?.cardInfoViewModel = source.cardViewModel
     }
 }
 

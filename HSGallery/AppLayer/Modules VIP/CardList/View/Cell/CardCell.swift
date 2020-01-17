@@ -29,6 +29,9 @@ public class CardCell: UITableViewCell {
         spinner.isHidden = false
         spinner.startAnimating()
         
+        
+        // THINK: Вынести загрузку картинки в презентор?
+        
         // Fetch image in the "background" (non-main queue).
         //
         // Note: Although we don't have a memory cycle for capturing `self`, we are using `[weak self]` because
@@ -75,6 +78,7 @@ public class CardCell: UITableViewCell {
             }.resume()
         }
     }
+    
     // Model: The URL used to retrieve the image we're going to show
     var imageURL: URL? {
         didSet {
@@ -108,6 +112,8 @@ public class CardCell: UITableViewCell {
     }
     
     func updateCellData(fromViewModel: CreatureViewModelProtocol) {
+        
+        // THINK: На Ipone SE rarityLabel не влезает при большом размере текста, как скейлить текст?
         
         if let viewModel = fromViewModel as? CreatureViewModel {
             imageURL = viewModel.img

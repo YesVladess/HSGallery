@@ -27,9 +27,9 @@ class CardInfoModule {
         interactor.router = router
         
         viewController.interactor = interactor
-        // Странная связь
+        // THINK: Странная связь
         viewController.router = router
-        // Тоже странная
+        // THINK: Тоже странная
         router.dataStore = interactor
         
         return viewController

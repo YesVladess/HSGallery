@@ -13,23 +13,23 @@ class CardListPresenter {
     
     // MARK: Private formatting helpers
     
-    private func presentCardCost(_ cost: Int?) -> String {
+    private func formatCardCost(_ cost: Int?) -> String {
         
         if let myCost = cost { return "\(myCost) 💎" }
         else { return "no cost" }
     }
     
-    private func presentCardHealth(_ health: Int?) -> String {
+    private func formatCardHealth(_ health: Int?) -> String {
         if let myHealth = health { return "\(myHealth) ♥️" }
         else { return "no health" }
     }
     
-    private func presentCardAttack(_ attack: Int?) -> String {
+    private func formatCardAttack(_ attack: Int?) -> String {
         if let myAttack = attack { return "\(myAttack) ⚔️" }
         else { return "no attack" }
     }
     
-    private func presentCardRarity(_ rarity: String?) -> String {
+    private func formatCardRarity(_ rarity: String?) -> String {
         
         if let cardRarity = rarity {
             switch cardRarity {
@@ -73,35 +73,34 @@ class CardListPresenter {
         
         func buildViewModel(card: CardModel) -> CreatureViewModelProtocol {
             
-            // Formatting all parameters before displaying them
+            // Форматируем все параметры перед их отображением
             let url = card.img
-            let cost = presentCardCost(card.cost)
-            let health = presentCardHealth(card.health)
-            let attack = presentCardAttack(card.attack)
-            let rarity = presentCardRarity(card.rarity)
+            let cost = formatCardCost(card.cost)
+            let health = formatCardHealth(card.health)
+            let attack = formatCardAttack(card.attack)
+            let rarity = formatCardRarity(card.rarity)
             let text = presentCardText(card.text)
             
             let viewModel = CreatureViewModel(cost: cost,
-                                       attack: attack,
-                                       health: health,
-                                       rarity: rarity,
-                                       text: text,
-                                       img: url)
-            
+                                              attack: attack,
+                                              health: health,
+                                              rarity: rarity,
+                                              text: text,
+                                              img: url)
             return viewModel
         }
+        
         // Массив вью моделей
         var viewModelsArray: [CreatureViewModelProtocol] = []
         
         for card in cards {
             
             // Собираем одну вью модель
+            // Пока выкидываем всех не существ, модель есть только для них
             if card.type == "Minion" {
                 let viewModel = buildViewModel(card: card)
-                if viewModel.attack != "0" {
-                    // И добавляем в массив
-                    viewModelsArray.append(viewModel)
-                }
+                // И добавляем в массив
+                viewModelsArray.append(viewModel)
             }
         }
         

@@ -10,11 +10,13 @@ import UIKit
 
 class CardListInteractor: CardListDataStore {
     
-    var cardInfo: CreatureViewModelProtocol?
+    let api = HSGalleryRapidAPIService()
     var presenter: CardListPresentationLogic?
     var router: CardListRoutingLogic?
+    
     var cardList: [CardModel] = []
-    let api = HSGalleryRapidAPIService()
+    var cardViewModel: CreatureViewModelProtocol?
+    
     
 }
 
@@ -39,7 +41,7 @@ extension CardListInteractor: CardListBusinessLogic {
     
     func openCardDetailInfo(viewModel: CreatureViewModelProtocol) {
         
-        cardInfo = viewModel
+        cardViewModel = viewModel
         router?.openCardInfoScreen()
     }
 }
