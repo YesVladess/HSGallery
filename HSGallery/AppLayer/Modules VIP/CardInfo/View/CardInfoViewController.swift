@@ -17,13 +17,9 @@ class CardInfoViewController: UIViewController {
     var interactor: CardInfoBusinessLogic?
     var router: (NSObjectProtocol & CardInfoRoutingLogic & CardInfoDataPassing)?
     
-    var mainURL: URL?
-    var secondURL: URL?
-    
     // MARK: IBOutlets
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
-    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var flavorLabel: UILabel!
     @IBOutlet weak var rarityLabel: UILabel!
@@ -78,9 +74,7 @@ class CardInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addCardImageGestureRecognizer(imageView)
         imageView.isUserInteractionEnabled = true
-        textField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -148,37 +142,6 @@ class CardInfoViewController: UIViewController {
         }
     }
     
-    // MARK: Gestures
-    
-    private func addCardImageGestureRecognizer(_ sender: AnyObject) {
-        
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapImage(recognizer:)))
-        tapRecognizer.numberOfTapsRequired = 1
-        tapRecognizer.numberOfTouchesRequired = 1
-        sender.addGestureRecognizer(tapRecognizer)
-    }
-    
-    @objc private func tapImage(recognizer: UITapGestureRecognizer) {
-        
-        // Make sure the gesture was successful
-        guard recognizer.state == .ended else {
-            print("Tap gesture cancelled/failed")
-            return
-        }
-        // TODO: Сделать по VIP
-        if imageURL == mainURL {
-            imageURL = secondURL
-        } else {
-            imageURL = mainURL
-            
-            // swapping URLS
-            let tmp = mainURL
-            mainURL = secondURL
-            secondURL = tmp
-        }
-        
-    }
-    
     /// Whether or not the current view controller is shown on screen.
     private var viewControllerIsOnScreen: Bool {
         // We determine if we're on screen based on whether or not the controller's view
@@ -198,29 +161,6 @@ extension CardInfoViewController: CardInfoDisplayLogic {
         rarityLabel.text = rarity
         textLabel.text = text
         flavorLabel.text = flavor
-        
         imageURL = url
-        mainURL = url
-        secondURL = urlGold
-    }
-}
-
-extension CardInfoViewController: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = ""
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        let textFromTextField: String = textField.text ?? ""
-        if textFromTextField != "" {
-            interactor?.getCard(textFromTextField)
-        }
     }
 }
