@@ -17,7 +17,6 @@ class CardInfoInteractor: CardInfoBusinessLogic, CardInfoDataStore {
     var presenter: CardInfoPresentationLogic?
     var router: CardInfoRoutingLogic?
     
-    var cardInfo: CardModel?
     var cardInfoViewModel: CreatureViewModelProtocol?
     
     func showCard() {

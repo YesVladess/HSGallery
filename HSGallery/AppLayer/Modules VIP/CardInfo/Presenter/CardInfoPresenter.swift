@@ -30,16 +30,6 @@ extension CardInfoPresenter: CardInfoPresentationLogic {
     
     func presentCard(card: CreatureViewModelProtocol) {
         
-        // Во вью модели уже все отформатировано, просто прокидываем дальше
-        let url = card.img
-        let urlGold = card.img
-        let cost = card.cost
-        let health = card.health
-        let attack = card.attack
-        let rarity = card.rarity
-        let text = card.text
-        let flavor = ""
-        
-        view?.displayCard(url: url, urlGold: urlGold, cost: cost, health: health, attack: attack, rarity: rarity, text: text, flavor: flavor)
+        view?.showCard(fromViewModel: card)
     }
 }

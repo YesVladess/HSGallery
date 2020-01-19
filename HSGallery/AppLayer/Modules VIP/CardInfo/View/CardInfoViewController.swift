@@ -152,14 +152,15 @@ class CardInfoViewController: UIViewController {
 
 extension CardInfoViewController: CardInfoDisplayLogic {
     
-    func displayCard(url: URL?, urlGold: URL?, cost: String, health: String, attack: String, rarity: String , text: String, flavor: String) {
+    func showCard(fromViewModel viewModel: CreatureViewModelProtocol) {
         
-        costLabel.text = cost
-        healthLabel.text = health
-        attackLabel.text = attack
-        rarityLabel.text = rarity
-        textLabel.text = text
-        flavorLabel.text = flavor
-        imageURL = url
+        if let cardModel = viewModel as? CreatureViewModel {
+                   imageURL = cardModel.img
+                   costLabel.text = cardModel.cost
+                   attackLabel.text = cardModel.attack
+                   healthLabel.text = cardModel.health
+                   rarityLabel.text = cardModel.rarity
+                   textLabel.text = viewModel.text
+               }
     }
 }

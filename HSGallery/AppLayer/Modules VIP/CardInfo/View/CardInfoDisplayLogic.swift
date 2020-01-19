@@ -9,5 +9,5 @@ import UIKit
 
 protocol CardInfoDisplayLogic: class {
     
-    func displayCard(url: URL?, urlGold: URL?, cost: String, health: String, attack: String, rarity: String, text: String, flavor: String)
+    func showCard(fromViewModel viewModel: CreatureViewModelProtocol)
 }
