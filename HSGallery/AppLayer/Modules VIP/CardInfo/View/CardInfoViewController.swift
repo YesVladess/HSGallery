@@ -150,7 +150,6 @@ class CardInfoViewController: UIViewController {
     }
 }
 
-
 extension CardInfoViewController: CardInfoDisplayLogic {
     
     func displayCard(url: URL?, urlGold: URL?, cost: String, health: String, attack: String, rarity: String , text: String, flavor: String) {

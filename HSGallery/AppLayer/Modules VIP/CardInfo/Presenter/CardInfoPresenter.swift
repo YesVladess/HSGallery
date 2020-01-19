@@ -16,64 +16,6 @@ class CardInfoPresenter {
     
     weak var view: CardInfoDisplayLogic?
     
-    private func formatCardCost(_ cost: Int?) -> String {
-        if let myCost = cost {
-            return "\(myCost) 💎"
-        } else {
-            return "No cost"
-        }
-    }
-    
-    private func formatCardHealth(_ health: Int?) -> String {
-        if let myHealth = health {
-            return "\(myHealth) ♥️"
-        } else {
-            return "No health"
-        }
-    }
-    
-    private func formatCardAttack(_ attack: Int?) -> String {
-        if let myAttack = attack {
-            return "\(myAttack) ⚔️"
-        } else {
-            return "No attack"
-        }
-    }
-    
-    private func formatCardRarity(_ rarity: String?) -> String {
-        
-        if let cardRarity = rarity {
-            switch cardRarity {
-            case "Free":
-                return "\(cardRarity)"
-            case "Common":
-                return "⚪️ \(cardRarity) ⚪️"
-            case "Rare":
-                return "🔷 \(cardRarity) 🔷"
-            case "Epic":
-                return "🟣 \(cardRarity) 🟣"
-            case "Legendary":
-                return "🔶 \(cardRarity) 🔶"
-            default:
-                return ""
-            }
-        } else { return "No rarity" }
-        
-    }
-    
-    private func formatCardText(_ text: String?) -> String {
-        if let carText = text {
-            
-            var result = carText.replacingOccurrences(of: "_", with: " ")
-            result = result.replacingOccurrences(of: "<b>", with: "")
-            result = result.replacingOccurrences(of: "</b>", with: "")
-            result = result.replacingOccurrences(of: "\\n", with: " ")
-            return result
-        } else {
-            return "No card text"
-        }
-    }
-    
     private func formatCardFlavor(_ flavor: String?) -> String {
         if let cardFlavor = flavor {
             return cardFlavor
@@ -86,24 +28,9 @@ class CardInfoPresenter {
 
 extension CardInfoPresenter: CardInfoPresentationLogic {
     
-    func presentCard(card: CardModel) {
-        
-        // Форматируем все параметры перед их отображением
-        let url = card.img
-        let urlGold = card.imgGold
-        let cost = formatCardCost(card.cost)
-        let health = formatCardHealth(card.health)
-        let attack = formatCardAttack(card.attack)
-        let rarity = formatCardRarity(card.rarity)
-        let text = formatCardText(card.text)
-        let flavor = formatCardFlavor(card.flavor)
-        
-        view?.displayCard(url: url, urlGold: urlGold, cost: cost, health: health, attack: attack, rarity: rarity, text: text, flavor: flavor)
-    }
-    
     func presentCard(card: CreatureViewModelProtocol) {
         
-        // Во вью модели уже все отформатировано, просто прокидываем дальше?
+        // Во вью модели уже все отформатировано, просто прокидываем дальше
         let url = card.img
         let urlGold = card.img
         let cost = card.cost

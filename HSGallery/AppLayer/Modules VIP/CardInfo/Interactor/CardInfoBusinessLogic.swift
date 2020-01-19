@@ -6,9 +6,7 @@
 //  Copyright © 2019 YesVladess. All rights reserved.
 //
 
-protocol CardInfoBusinessLogic
-{
-    func getCard(_ name: String)
-    
+protocol CardInfoBusinessLogic {
+
     func showCard()
 }

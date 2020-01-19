@@ -8,7 +8,5 @@
 
 protocol CardInfoPresentationLogic {
     
-    func presentCard(card: CardModel)
-    
     func presentCard(card: CreatureViewModelProtocol)
 }

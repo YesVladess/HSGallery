@@ -20,31 +20,6 @@ class CardInfoInteractor: CardInfoBusinessLogic, CardInfoDataStore {
     var cardInfo: CardModel?
     var cardInfoViewModel: CreatureViewModelProtocol?
     
-    func getCard(_ name: String) {
-        
-        let myApi = HSGalleryRapidAPIService()
-        
-        myApi.getSingleCard(byName: name, completionHandler:
-            { [unowned self] cards, error in
-                if let errorDesc = error {
-                    print(errorDesc)
-                } else {
-                    // THINK: Бывает, в запросе по одной карте приходит несколько карт, нужно выбрать одну
-                    if cards?.count == 2 {
-                    if let myCardInfo = cards?[1] {
-                        self.cardInfo = myCardInfo
-                        self.presenter?.presentCard(card: self.cardInfo!)
-                    }
-                    } else {
-                        if let myCardInfo = cards?[0] {
-                            self.cardInfo = myCardInfo
-                            self.presenter?.presentCard(card: self.cardInfo!)
-                        }
-                    }
-                }
-        })
-    }
-    
     func showCard() {
         
         self.presenter?.presentCard(card: self.cardInfoViewModel!)
